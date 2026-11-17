@@ -27,9 +27,14 @@ body {
 }
 
 .header .container {
-  justify-content: space-between;
-  align-items: center;
+  width: 90%;
+  padding: 0 30px;
+  margin: 0;
+  box-sizing: border-box;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header a {
@@ -48,7 +53,6 @@ body {
 }               
                  
 .agora {
-  font-weight: 800;
   color: #ff0000;
 }
 
