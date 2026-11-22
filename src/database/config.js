@@ -23,6 +23,7 @@ function executar(instrucao, valores) {
             conexao.end();
             if (erro) {
                 reject(erro);
+                return;
             }
             console.log(resultados);
             resolve(resultados);
