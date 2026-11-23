@@ -1,0 +1,56 @@
+
+/* QUIZ DE PERSONALIDADE */
+
+.quiz-personalidade {
+    min-height: calc(100vh - 145px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #101010;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.quiz-personalidade > .container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.card.card-quiz {
+    width: 550px;
+    max-width: 90%;
+    padding: 35px;
+    box-sizing: border-box;
+    gap: 20px;
+    text-align: center;
+}
+
+.card-quiz h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.card-quiz p {
+    color: #cccccc;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.card-quiz .botao {
+    width: 180px;
+    align-self: center;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-personalidade {
+    flex: 1;
+    min-height: 0;
+}

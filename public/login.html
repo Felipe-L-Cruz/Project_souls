@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AquaTech | Login</title>
+    <title> Bleach | Login</title>
 
     <script src="./js/sessao.js"></script>
 
@@ -21,20 +21,16 @@
 
     <div class="header">
         <div class="container">
-            <h1 class="titulo">AquaTech</h1>
+            <h1 class="titulo">Project Souls</h1>
             <ul class="navbar">
                 <li>
-                    <a href="index.html">Inicial</a>
+                    <a href="index.html">HOME</a>
                 </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
                 <li class="agora">
-                    <a href="#">Login</a>
+                    <a href="#">LOGIN</a>
                 </li>
                 <li>
-                    <a href="cadastro.html">Cadastro</a>
+                    <a href="cadastro.html">CADASTRO</a>
                 </li>
             </ul>
         </div>
@@ -74,7 +70,7 @@
     <!--footer inicio-->
     <div class="footer">
         <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
+            <h4> Projeto Individual SPTech | Universo Bleach 2026</h4>
         </div>
     </div>
     <!--footer fim-->
@@ -126,7 +122,6 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
@@ -145,12 +140,10 @@
             }
 
         }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-    }
-
+                console.log(erro);
+                finalizarAguardar("Erro ao conectar com o servidor.");
+});
+            }       
     function sumirMensagem() {
         cardErro.style.display = "none"
     }

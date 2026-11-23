@@ -34,3 +34,14 @@ function finalizarAguardar(texto) {
     }
 }
 
+function verificarLogin() {
+    var idUsuario = sessionStorage.getItem('ID_USUARIO');
+
+    if (idUsuario == null) {
+        window.location.href = 'login.html';
+        return false;
+    }
+
+    return true;
+}
+

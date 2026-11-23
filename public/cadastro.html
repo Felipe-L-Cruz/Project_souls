@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Cadastro</title>
+  <title>Bleach| Cadastro</title>
 
   <script src="./js/sessao.js"></script>
 
@@ -15,24 +15,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <div class="header">
     <div class="container">
-      <h1 class="titulo">AquaTech</h1>
+      <h1 class="titulo">Project Souls</h1>
       <ul class="navbar">
         <li>
-          <a href="index.html">Inicial</a>
+          <a href="index.html">HOME</a>
         </li>
         <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
+          <a href="login.html">LOGIN</a>
         </li>
         <li class="agora">
-          <a href="#">Cadastro</a>
+          <a href="#">CADASTRO</a>
         </li>
       </ul>
     </div>
@@ -53,6 +49,7 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
+            <div class="campo">
             <span>Nome:</span>
             <input id="nome_input" type="text" placeholder="Seu nome" />
           </div>
@@ -82,7 +79,7 @@
   <!--footer inicio-->
   <div class="footer">
     <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
+      <h4>Projeto Individual SPTech | Universo Bleach 2026</h4>
     </div>
   </div>
   <!--footer fim-->
@@ -99,6 +96,7 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
+}
     if (
       nomeVar == "" ||
       emailVar == "" ||
@@ -109,14 +107,29 @@
       mensagem_erro.innerHTML = "Preencha todos os campos!";
       return false;
 
-  } else if (senhaVar != confirmacaoSenhaVar) {
+    if (!emailVar.includes("@") || !emailVar.endsWith(".com")) {   
+      cardErro.style.display = "block";                     
+      mensagem_erro.innerHTML = "Digite um e-mail válido!";  
+      return false;                                            
+
+  } if (senhaVar.length < 8) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "A senha precisa ter no mínimo 8 caracteres!";
+      return false;
+
+
+  } if (!/[!@#$%^&*(),.?":{}|<>_\-+=]/.test(senhaVar)) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "A senha precisa conter pelo menos um caractere especial!";
+      return false;
+
+  } if (senhaVar != confirmacaoSenhaVar) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "As senhas não coincidem!";    
       return false;
-      
-    } else {
+
+  } 
       setInterval(sumirMensagem, 5000);
-    }
     
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -150,14 +163,22 @@
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+        .catch(function (erro) {
+              console.log(erro);
+              cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Erro ao conectar com o servidor.";
       });
-
-    return false;
   }
 
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
+
+function limparFormulario() {
+    nome_input.value = "";
+    email_input.value = "";
+    senha_input.value = "";
+    confirmacao_senha_input.value = "";
+}
+
 </script>

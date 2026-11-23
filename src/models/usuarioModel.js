@@ -17,7 +17,17 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucaoSql, [nome, email, senha]);
 }
 
+function verificarNome(nome) {
+    var instrucaoSql = `
+        SELECT id FROM usuario
+        WHERE nome = ?;
+    `;
+
+    return database.executar(instrucaoSql, [nome]);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    verificarNome
 };
