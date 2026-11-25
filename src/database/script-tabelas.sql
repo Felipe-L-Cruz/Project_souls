@@ -16,7 +16,7 @@ USE Project_Souls;
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR (100) UNIQUE,
-email VARCHAR (65),
+email VARCHAR (65) UNIQUE,
 senha VARCHAR(20)
 );
 

@@ -1,13 +1,14 @@
 var usuarioModel = require("../models/usuarioModel");
 
 function autenticar(req, res) {
+
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
     if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        return res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
+        return res.status(400).send("Sua senha está indefinida!");
     } else {
 
         usuarioModel.autenticar(email, senha)
@@ -47,40 +48,45 @@ function cadastrar(req, res) {
     var senha = req.body.senhaServer;
 
     if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+        return res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        return res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else {
+        return res.status(400).send("Sua senha está undefined!");
+    } 
 
         usuarioModel.verificarNome(nome)
-            .then(function (resultado) {
+            .then(function (resultadoNome) {
 
-                if (resultado.length > 0) {
-                    res.status(409).send("Esse nome já está cadastrado!");
-                } else {
+                if (resultadoNome.length > 0) {
+                   return res.status(409).send("Esse nome já está cadastrado!");
+            }
 
-                    usuarioModel.cadastrar(nome, email, senha)
-                        .then(function (resultado) {
-                            res.json(resultado);
-                        })
-                        .catch(function (erro) {
-                            console.log(erro);
-                            res.status(500).json(erro.sqlMessage);
-                        });
-
-                }
-
+         return usuarioModel.verificarEmail(email);
             })
-            .catch(function (erro) {
-                console.log(erro);
-                res.status(500).send("Erro ao verificar o nome!");
-            });
-    }
-}
 
-module.exports = {
-    autenticar,
-    cadastrar
+             .then(function (resultadoEmail) {
+
+            if (resultadoEmail.length > 0) {
+                throw { status: 409, mensagem: "Esse e-mail já está cadastrado!" };
+            }
+
+            return usuarioModel.cadastrar(nome, email, senha);
+        })
+        .then(function (resultado) {
+            return res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+
+            if (erro.status) {
+                return res.status(erro.status).send(erro.mensagem);
+            }
+
+            if (erro.code === "ER_DUP_ENTRY") {
+                return res.status(409).send("Nome ou e-mail já cadastrado!");
+            }
+
+            return res.status(500).send("Erro ao realizar o cadastro!");
+        });
 }

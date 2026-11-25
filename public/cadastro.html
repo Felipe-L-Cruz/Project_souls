@@ -128,7 +128,7 @@
         return false;
 
       }
-      setInterval(sumirMensagem, 5000);
+      setTimeout(sumirMensagem, 5000);
 
       // Enviando o valor da nova input
       fetch("/usuarios/cadastrar", {
@@ -159,8 +159,11 @@
 
             limparFormulario();
           } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
+          resposta.text().then(function (mensagem) {
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML = mensagem;
+        });
+  }         
         })
         .catch(function (erro) {
           console.log(erro);
@@ -168,7 +171,6 @@
           mensagem_erro.innerHTML = "Erro ao conectar com o servidor.";
         });
     }
-    alert('funcionou');
   
 
   function sumirMensagem() {

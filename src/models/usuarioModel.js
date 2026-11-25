@@ -26,8 +26,19 @@ function verificarNome(nome) {
     return database.executar(instrucaoSql, [nome]);
 }
 
+function verificarNome(email) {                     
+    var instrucaoSql = `                           
+        SELECT id FROM usuario                     
+        WHERE email = ?;                            
+    `;                                             
+                                                   
+                                                   
+    return database.executar(instrucaoSql, [email]);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    verificarNome
+    verificarNome,
+    verificarEmail
 };
