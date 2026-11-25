@@ -105,8 +105,8 @@
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "Preencha todos os campos!";
       return false;
-
-      if (!emailVar.includes("@") || !emailVar.endsWith(".com")) {
+  
+      } if (!emailVar.includes("@") || !emailVar.endsWith(".com")) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML = "Digite um e-mail válido!";
         return false;
@@ -169,7 +169,7 @@
         });
     }
     alert('funcionou');
-  }
+  
 
   function sumirMensagem() {
     cardErro.style.display = "none";
