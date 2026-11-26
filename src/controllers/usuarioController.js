@@ -90,6 +90,9 @@ function cadastrar (req, res) {
             return res.status(500).send("Erro ao realizar o cadastro!");
         });
         
+        console.log("Email recebido:", email);
+        console.log("Senha recebida:", senha);
+
 }
 
 module.exports = {
