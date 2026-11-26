@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 body {
   margin: 0;
@@ -24,6 +24,10 @@ body {
 .header {
   height: var(--tamanho-header);
   border-bottom: 2px solid #000000;
+ position: sticky;
+    top: 0;
+    z-index: 1000;
+
 }
 
 .header .container {
@@ -65,6 +69,7 @@ body {
 
 .header h1 {
   margin: 0;
+  font-family: 'Orbitron', sans-serif;
 }
 
 /* BANNER */
@@ -163,6 +168,7 @@ border-bottom: 2px solid #b5121b;
 color: #d71920;
 font-weight: 800;
 letter-spacing: 3px;
+font-family: 'Orbitron', sans-serif
 }
 
 .header a {

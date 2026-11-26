@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,61 +11,137 @@
 
 <body>
 
-    <header class="header-dashboard">
-        <h1>PROJECT SOULS</h1>
-        <span>PAINEL ADMINISTRATIVO</span>
-    </header>
+    <div class="layout-dashboard">
 
-    <main class="dashboard">
 
-        <section class="boas-vindas">
-            <h2>Visão Geral</h2>
-            <p>Acompanhe os dados e resultados do universo Project Souls.</p>
-        </section>
+        <aside class="sidebar">
 
-        <section class="indicadores">
-
-            <div class="card-indicador">
-                <h3>Usuários cadastrados</h3>
-                <span id="total_usuarios">0</span>
+            <div class="sidebar-logo">
+                <img src="assets/icon/B-icon.png" alt="Project Souls">
             </div>
 
-            <div class="card-indicador">
-                <h3>Quizzes concluídos</h3>
-                <span id="total_quizzes">0</span>
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="link-sidebar ativo">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="index.html" class="link-sidebar">
+                    <span>Home</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-rodape">
+
+                <a href="login.html" class="link-sidebar sair">
+                    <span>Sair</span>
+                </a>
+
             </div>
 
-            <div class="card-indicador">
-                <h3>Facção predominante</h3>
-                <span id="faccao_frequente">---</span>
-            </div>
+        </aside>
 
-        </section>
+        <div class="conteudo-dashboard">
 
-        <section class="resultados">
-    <h2>Resultados por facção</h2>
+            <header class="header-dashboard">
+                <h1>PROJECT SOULS</h1>
+                <span>PAINEL ADMINISTRATIVO</span>
+            </header>
 
-    <div class="conteudo-grafico">
+            <main class="dashboard">
 
-        <div class="grafico-rosca">
-            <div id="grafico_faccoes" class="rosca">
-                <div class="centro-rosca">
-                    <span id="total_resultados">0</span>
-                    <small>Respostas</small>
-                </div>
-            </div>
-        </div>
+                <section class="boas-vindas">
+                    <h2>Visão Geral</h2>
+                    <p>Acompanhe os dados e resultados do universo Project Souls.</p>
+                </section>
 
-        <div id="distribuicao_faccoes" class="legenda-faccoes">
-            <!-- A legenda será preenchida pelo JavaScript -->
+                <section class="indicadores">
+
+                    <div class="card-indicador">
+                        <h3>Usuários cadastrados</h3>
+                        <span id="total_usuarios">0</span>
+                    </div>
+
+                    <div class="card-indicador">
+                        <h3>Quizzes concluídos</h3>
+                        <span id="total_quizzes">0</span>
+                    </div>
+
+                    <div class="card-indicador">
+                        <h3>Facção predominante</h3>
+                        <span id="faccao_frequente">---</span>
+                    </div>
+
+                </section>
+
+                <section class="resultados">
+
+
+                    <section class="painel-inferior">
+
+                        <div class="resultados">
+
+                            <h2>Resultados por facção</h2>
+
+                            <div class="conteudo-grafico">
+
+                                <div class="grafico-rosca">
+
+                                    <div id="grafico_faccoes" class="rosca">
+
+                                        <div class="centro-rosca">
+                                            <span id="total_resultados">0</span>
+                                            <small>Respostas</small>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div id="distribuicao_faccoes" class="legenda-faccoes">
+                                    <!-- Legenda preenchida pelo JavaScript -->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="painel-recentes">
+
+                            <h2>Tentativas recentes</h2>
+
+                            <div class="tabela-recentes">
+
+                                <table>
+
+                                    <thead>
+                                        <tr>
+                                            <th>Usuário</th>
+                                            <th>Facção</th>
+                                            <th>Data</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="tabela_tentativas">
+                                        <!-- Dados preenchidos pelo JavaScript -->
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+            </main>
+
         </div>
 
     </div>
-</section>
-
-    </main>
 
     <script src="js/dashboard.js"></script>
 
 </body>
+
 </html>

@@ -5,7 +5,8 @@ function buscarIndicadores(req, res) {
     Promise.all([
         dashboardModel.buscarTotalUsuarios(),
         dashboardModel.buscarTotalQuizzes(),
-        dashboardModel.buscarResultadosPorFaccao()
+        dashboardModel.buscarResultadosPorFaccao(),
+        dashboardModel.buscarTentativasRecentes()
     ])
     .then(function (resultados) {
         var distribuicao = resultados[2];
@@ -14,7 +15,8 @@ function buscarIndicadores(req, res) {
             totalUsuarios: resultados[0][0].total,
             totalQuizzes: resultados[1][0].total,
             resultadosPorFaccao: distribuicao,
-            faccaoMaisFrequente: distribuicao.length > 0 ? distribuicao[0] : null
+            faccaoMaisFrequente: distribuicao.length > 0 ? distribuicao[0] : null,
+            tentativasRecentes: resultados[3]
         });
     })
     .catch(function (erro) {

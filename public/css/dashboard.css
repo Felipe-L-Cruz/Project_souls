@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 /* CONFIGURAÇÕES GERAIS */
 
@@ -28,6 +29,7 @@ body {
     color: #d71920;
     font-weight: 800;
     letter-spacing: 3px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .header-dashboard span {
@@ -39,11 +41,10 @@ body {
 /* CONTEÚDO PRINCIPAL */
 
 .dashboard {
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
+    max-width: 1500px;
     margin: 40px auto;
 }
-
 /* BOAS-VINDAS */
 
 .boas-vindas {
@@ -146,8 +147,8 @@ body {
 }
 
 .centro-rosca small {
-    color: #aaaaaa;
-    font-size: 13px;
+    color: #ffffff;
+    font-size: 16px;
 }
 
 /* LEGENDA DAS FACÇÕES */
@@ -184,4 +185,151 @@ body {
 .quantidade-faccao {
     color: #aaaaaa;
     font-size: 13px;
+}
+
+
+/* ESTRUTURA GERAL DO DASHBOARD */
+
+.layout-dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+.conteudo-dashboard {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* BARRA LATERAL */
+
+.sidebar {
+    width: 180px;
+    min-height: 100vh;
+    background-color: #101010;
+    border-right: 1px solid #383838;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 20px;
+}
+
+
+/* LOGO */
+
+.sidebar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.sidebar-logo img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* MENU */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.link-sidebar {
+    display: block;
+    padding: 14px 16px;
+
+    color: #aaa;
+    text-decoration: none;
+    font-size: 15px;
+
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+
+    transition: 0.2s;
+}
+
+.link-sidebar:hover {
+    background-color: #252525;
+    color: #fff;
+}
+
+.link-sidebar.ativo {
+    background-color: #2a1112;
+    color: #fff;
+    border-left-color: #d71920;
+}
+
+
+/* RODAPÉ */
+
+.sidebar-rodape {
+    margin-top: auto;
+}
+
+.link-sidebar.sair:hover {
+    color: #d71920;
+}
+
+
+/* PAINEIS INFERIORES */
+
+.painel-inferior {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 25px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.resultados,
+.painel-recentes {
+    min-width: 0;
+}
+
+/* PAINEL DE TENTATIVAS RECENTES */
+
+.painel-recentes {
+    background-color: #181818;
+    border: 1px solid #383838;
+    border-top: 4px solid #b5121b;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.painel-recentes h2 {
+    margin-bottom: 25px;
+}
+
+.tabela-recentes {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabela-recentes table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabela-recentes th {
+    color: #d71920;
+    font-size: 13px;
+    padding: 12px 8px;
+    border-bottom: 1px solid #383838;
+}
+
+.tabela-recentes td {
+    color: #ccc;
+    font-size: 13px;
+    padding: 15px 8px;
+    border-bottom: 1px solid #292929;
+}
+
+.tabela-recentes tr:last-child td {
+    border-bottom: none;
 }
