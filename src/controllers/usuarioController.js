@@ -42,7 +42,7 @@ function autenticar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function cadastrar (req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -59,7 +59,7 @@ function cadastrar(req, res) {
             .then(function (resultadoNome) {
 
                 if (resultadoNome.length > 0) {
-                   return res.status(409).send("Esse nome já está cadastrado!");
+                   throw res.status(409).send("Esse nome já está cadastrado!");
             }
 
          return usuarioModel.verificarEmail(email);
@@ -89,4 +89,10 @@ function cadastrar(req, res) {
 
             return res.status(500).send("Erro ao realizar o cadastro!");
         });
+        
 }
+
+module.exports = {
+    autenticar,   
+    cadastrar     
+};                

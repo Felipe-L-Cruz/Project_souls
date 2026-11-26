@@ -26,7 +26,7 @@ function verificarNome(nome) {
     return database.executar(instrucaoSql, [nome]);
 }
 
-function verificarNome(email) {                     
+function verificarEmail(email) {                     
     var instrucaoSql = `                           
         SELECT id FROM usuario                     
         WHERE email = ?;                            
