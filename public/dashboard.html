@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Souls | Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <header class="header-dashboard">
+        <h1>PROJECT SOULS</h1>
+        <span>PAINEL ADMINISTRATIVO</span>
+    </header>
+
+    <main class="dashboard">
+
+        <section class="boas-vindas">
+            <h2>Visão Geral</h2>
+            <p>Acompanhe os dados e resultados do universo Project Souls.</p>
+        </section>
+
+        <section class="indicadores">
+
+            <div class="card-indicador">
+                <h3>Usuários cadastrados</h3>
+                <span id="total_usuarios">0</span>
+            </div>
+
+            <div class="card-indicador">
+                <h3>Quizzes concluídos</h3>
+                <span id="total_quizzes">0</span>
+            </div>
+
+            <div class="card-indicador">
+                <h3>Facção predominante</h3>
+                <span id="faccao_frequente">---</span>
+            </div>
+
+        </section>
+
+        <section class="resultados">
+    <h2>Resultados por facção</h2>
+
+    <div class="conteudo-grafico">
+
+        <div class="grafico-rosca">
+            <div id="grafico_faccoes" class="rosca">
+                <div class="centro-rosca">
+                    <span id="total_resultados">0</span>
+                    <small>Respostas</small>
+                </div>
+            </div>
+        </div>
+
+        <div id="distribuicao_faccoes" class="legenda-faccoes">
+            <!-- A legenda será preenchida pelo JavaScript -->
+        </div>
+
+    </div>
+</section>
+
+    </main>
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

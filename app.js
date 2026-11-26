@@ -15,6 +15,7 @@ var HOST_APP = process.env.APP_HOST;
 
 var app = express();
 
+var dashboardRouter = require("./src/routes/dashboard");
 var quizRouter = require("./src/routes/quiz");
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
+app.use("/dashboard", dashboardRouter);
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
